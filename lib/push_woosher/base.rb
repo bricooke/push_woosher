@@ -30,10 +30,15 @@ module PushWoosher
     end
 
     def config
-      {
-        application: PushWoosher.configuration.application_code,
+      config = {
         auth: PushWoosher.configuration.api_token
       }
+      if PushWoosher.configuration.applications_group_code.present?
+        config[:applications_group] = PushWoosher.configuration.applications_group_code
+      else
+        config[:application] = PushWoosher.configuration.application_code
+      end
+      config
     end
   end
 end

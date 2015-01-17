@@ -1,6 +1,7 @@
 module PushWoosher
   class Config
     attr_accessor :application_code
+    attr_accessor :applications_group_code
     attr_accessor :api_token
 
     def setup
